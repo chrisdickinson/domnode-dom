@@ -5,6 +5,41 @@ Turn DOM elements into readable / writable streams.
 Designed for use with [Browserify](https://github.com/substack/browserify)
 and [domnode](https://github.com/maxogden/domnode).
 
+````javascript
+
+var domstream = require('domstream')
+  , input = document.querySelector('input[type=text]')
+  , output = document.querySelector('div#output')
+
+// replace the contents entirely with plain text generated
+// by the <input> element!
+domstream
+  .createReadStream(input)
+  .pipe(domstream.createWriteStream(output, 'text/plain'))
+
+
+// grab a url and replace the body with its contents!
+
+http
+  .get('/some/url')
+  .pipe(domstream.createAppendStream(output, 'text/html'))
+
+// extend mimetypes:
+domstream.WriteStream.prototype.constructImagePng = function(data) {
+  var img = document.createElement('img')
+  img.src = data
+  return img
+}
+
+// now anything you type will be used as the source for an image tag!
+// or replace the contents entirely with plain text!
+domstream
+  .createReadStream(input)
+  .pipe(domstream.createWriteStream(output, 'image/png'))
+
+````
+
+
 To view the example:
 
 ````shell
