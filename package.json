@@ -1,6 +1,6 @@
 {
   "name": "domnode-dom",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "DOMNode streams for HTMLElements",
   "main": "index.js",
   "directories": {
