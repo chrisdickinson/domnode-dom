@@ -46,8 +46,8 @@ To view the example:
 
 $ git clone git://github.com/chrisdickinson/domnode-dom.git
 $ cd domnode-dom.git
-$ browserify example.js > examples/main.bundle.js
-$ python -m SimpleHTTPServer 9090 &; bg;
+$ browserify example.js > example/main.bundle.js
+$ python -m SimpleHTTPServer 9090 & bg;
 $ open http://localhost:9090/
 
 ````
