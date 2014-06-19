@@ -45,7 +45,7 @@ To view the example:
 ````shell
 
 $ git clone git://github.com/chrisdickinson/domnode-dom.git
-$ cd domnode-dom.git
+$ cd domnode-dom
 $ browserify example.js > example/main.bundle.js
 $ python -m SimpleHTTPServer 9090 & bg;
 $ open http://localhost:9090/
